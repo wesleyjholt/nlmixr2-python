@@ -1,0 +1,41 @@
+{
+  "artifact_version": 1,
+  "source": {
+    "tool": "nlmixr2",
+    "version": "5.0.0",
+    "estimator": "focei",
+    "dataset": "theo_sd",
+    "model": "one.cmt"
+  },
+  "run": {
+    "n_observations": 144,
+    "n_ids": 12,
+    "columns": ["ID", "TIME", "DV", "AMT", "EVID", "CMT", "WT"],
+    "objective": 117.003350569348,
+    "aic": null,
+    "bic": null,
+    "log_likelihood": null
+  },
+  "parameters": {
+    "tka": {
+      "estimate": 0.4750782090457,
+      "se": 0.1891775688667,
+      "rse": 39.820300166294
+    },
+    "tcl": {
+      "estimate": 1.009788159674,
+      "se": 0.07713993781152,
+      "rse": 7.639219877207
+    },
+    "tv": {
+      "estimate": 3.465559689238,
+      "se": 0.03801165239291,
+      "rse": 1.096840216342
+    },
+    "add.sd": {
+      "estimate": 0.6941067700605,
+      "se": "NA",
+      "rse": "NA"
+    }
+  }
+}
