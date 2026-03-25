@@ -1,0 +1,132 @@
+{
+  "commands": [
+    "Rscript -e \"suppressPackageStartupMessages({library(nlmixr2); library(nlmixr2data)}); cat(\\\"warfarin exists=\\\", exists(\\\"warfarin\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); cat(\\\"warfarin class=\\\", paste(class(warfarin), collapse=\\\",\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); cat(\\\"warfarin names=\\\", paste(names(warfarin), collapse=\\\",\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); cat(\\\"warfarin nrow=\\\", nrow(warfarin), \\\"\\\\n\\\", sep=\\\"\\\"); if (\\\"DVID\\\" %in% names(warfarin)) cat(\\\"warfarin DVID=\\\", paste(unique(warfarin$DVID), collapse=\\\",\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); if (\\\"CMT\\\" %in% names(warfarin)) cat(\\\"warfarin CMT=\\\", paste(unique(warfarin$CMT), collapse=\\\",\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); cat(\\\"Oral_1CPT exists=\\\", exists(\\\"Oral_1CPT\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); cat(\\\"Oral_1CPT class=\\\", paste(class(Oral_1CPT), collapse=\\\",\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); cat(\\\"Oral_1CPT names=\\\", paste(names(Oral_1CPT), collapse=\\\",\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); cat(\\\"Oral_1CPT nrow=\\\", nrow(Oral_1CPT), \\\"\\\\n\\\", sep=\\\"\\\"); if (\\\"SD\\\" %in% names(Oral_1CPT)) cat(\\\"Oral_1CPT SD=\\\", paste(unique(Oral_1CPT$SD), collapse=\\\",\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); if (\\\"SS\\\" %in% names(Oral_1CPT)) cat(\\\"Oral_1CPT SS=\\\", paste(unique(Oral_1CPT$SS), collapse=\\\",\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); if (\\\"dose\\\" %in% names(Oral_1CPT)) cat(\\\"Oral_1CPT dose=\\\", paste(unique(Oral_1CPT$dose), collapse=\\\",\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); print(utils::head(warfarin)); print(utils::head(Oral_1CPT))\""
+  ],
+  "created_at": "2026-03-25T00:33:44Z",
+  "cwd": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python",
+  "header": {
+    "account": "lilly-agentic-cpu",
+    "cpus_per_task": 4,
+    "error": "slurm-%j.err",
+    "mem": "8G",
+    "modules": [],
+    "nodes": 1,
+    "ntasks": 1,
+    "output": "slurm-%j.out",
+    "partition": "cpu",
+    "qos": "standby",
+    "time": "01:00:00"
+  },
+  "history": [
+    {
+      "at": "2026-03-25T00:33:45Z",
+      "event": "render_job",
+      "local_script": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-ref-dataset-debug-20260324-203341/job.slurm",
+      "remote_script": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-dataset-debug-20260324-203341/job.slurm",
+      "script_name": "job.slurm"
+    },
+    {
+      "applied_fixes": [],
+      "at": "2026-03-25T00:33:47Z",
+      "event": "submit_job",
+      "job_id": "8532802",
+      "stderr": "************************************************************\n\n***** Use of Purdue BoilerKey or SSH keys is Required ******\n\n************************************************************",
+      "stdout": "Submitted batch job 8532802"
+    },
+    {
+      "at": "2026-03-25T00:33:48Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:00",
+        "nodes": "1",
+        "raw": "PENDING|0:00|1|(None)",
+        "reason": "(None)",
+        "source": "squeue",
+        "state": "PENDING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:34:00Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:00",
+        "nodes": "1",
+        "raw": "PENDING|0:00|1|(None)",
+        "reason": "(None)",
+        "source": "squeue",
+        "state": "PENDING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:34:13Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:04",
+        "nodes": "1",
+        "raw": "RUNNING|0:04|1|a166",
+        "reason": "a166",
+        "source": "squeue",
+        "state": "RUNNING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:34:24Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:08",
+        "nodes": "1",
+        "raw": "COMPLETING|0:08|1|a166",
+        "reason": "a166",
+        "source": "squeue",
+        "state": "COMPLETING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:34:36Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:08",
+        "nodes": "1",
+        "raw": "COMPLETING|0:08|1|a166",
+        "reason": "a166",
+        "source": "squeue",
+        "state": "COMPLETING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:34:50Z",
+      "event": "status",
+      "status": {
+        "elapsed": "00:00:08",
+        "exit_code": "1:0",
+        "nodes": "a166",
+        "raw": "8532802|FAILED|00:00:08|1:0|a166",
+        "source": "sacct",
+        "state": "FAILED"
+      }
+    },
+    {
+      "at": "2026-03-25T00:34:52Z",
+      "event": "logs",
+      "stderr_path": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-dataset-debug-20260324-203341/slurm-8532802.err",
+      "stdout_path": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-dataset-debug-20260324-203341/slurm-8532802.out",
+      "tail": 200
+    }
+  ],
+  "job_id": "8532802",
+  "local_run_dir": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-ref-dataset-debug-20260324-203341",
+  "profile_id": "gautschi-cpu",
+  "remote_run_dir": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-dataset-debug-20260324-203341",
+  "run_id": "gautschi-ref-dataset-debug-20260324-203341",
+  "script_name": "job.slurm",
+  "selected_by": "explicit",
+  "status": {
+    "elapsed": "00:00:08",
+    "exit_code": "1:0",
+    "nodes": "a166",
+    "raw": "8532802|FAILED|00:00:08|1:0|a166",
+    "source": "sacct",
+    "state": "FAILED"
+  },
+  "updated_at": "2026-03-25T00:34:52Z"
+}

@@ -33,13 +33,28 @@ Smoke result:
   `nlmixr2 version: 5.0.0`
   `reference smoke ok`
 
-Reference-fit result:
+Reference-fit results:
 
 - Run id: `gautschi-theo-ref3-20260324-160922`
-- Job id: `8531604`
-- Status: completed
-- Produced artifact: `reference-theophylline-fit.json`
-- Downloaded fixture: `tests/fixtures/reference-theophylline-fit.json`
+  Job id: `8531604`
+  Status: completed
+  Produced artifact: `reference-theophylline-fit.json`
+  Downloaded fixture: `tests/fixtures/reference-theophylline-fit.json`
+- Run id: `gautschi-warfarin-foce-ref2-20260324-203630`
+  Job id: `8532818`
+  Status: completed
+  Produced artifact: `reference-warfarin-foce-fit.json`
+  Downloaded fixture: `tests/fixtures/reference-warfarin-foce-fit.json`
+- Run id: `gautschi-warfarin-saem-ref2-20260324-203630`
+  Job id: `8532817`
+  Status: completed
+  Produced artifact: `reference-warfarin-saem-fit.json`
+  Downloaded fixture: `tests/fixtures/reference-warfarin-saem-fit.json`
+- Run id: `gautschi-oral1comp-ref2-20260324-203630`
+  Job id: `8532816`
+  Status: completed
+  Produced artifact: `reference-pk-oral1comp-fit.json`
+  Downloaded fixture: `tests/fixtures/reference-pk-oral1comp-fit.json`
 
 Operational note:
 

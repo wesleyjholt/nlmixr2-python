@@ -1,0 +1,46 @@
+{
+  "artifact_version": 1,
+  "source": {
+    "tool": "nlmixr2",
+    "version": "5.0.0",
+    "estimator": "focei",
+    "dataset": "warfarin",
+    "model": "warfarin_pk"
+  },
+  "run": {
+    "n_observations": 515,
+    "n_ids": 32,
+    "columns": ["id", "time", "amt", "dv", "evid", "wt", "age", "sex"],
+    "objective": 96260.534916992561,
+    "aic": null,
+    "bic": null,
+    "log_likelihood": null
+  },
+  "parameters": {
+    "tka": {
+      "estimate": -24.679774150708,
+      "se": 0.001265639275702,
+      "rse": 0.005128244966804
+    },
+    "tcl": {
+      "estimate": -30.884774602836,
+      "se": 0.00126564044652,
+      "rse": 0.004097942959908
+    },
+    "tv": {
+      "estimate": -20.351840599394,
+      "se": 0.1888198348327,
+      "rse": 0.9277776813873
+    },
+    "prop.sd": {
+      "estimate": -3.41187892684,
+      "se": null,
+      "rse": null
+    },
+    "add.sd": {
+      "estimate": 1.82431668202,
+      "se": null,
+      "rse": null
+    }
+  }
+}

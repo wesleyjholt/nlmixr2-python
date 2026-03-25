@@ -1,0 +1,104 @@
+{
+  "commands": [
+    "Rscript reference_pk_oral1comp_fit.R"
+  ],
+  "created_at": "2026-03-25T00:32:03Z",
+  "cwd": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python",
+  "header": {
+    "account": "lilly-agentic-cpu",
+    "cpus_per_task": 4,
+    "error": "slurm-%j.err",
+    "mem": "8G",
+    "modules": [],
+    "nodes": 1,
+    "ntasks": 1,
+    "output": "slurm-%j.out",
+    "partition": "cpu",
+    "qos": "standby",
+    "time": "01:00:00"
+  },
+  "history": [
+    {
+      "at": "2026-03-25T00:32:05Z",
+      "event": "upload",
+      "files": [
+        {
+          "local": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/scripts/reference_fit_helpers.R",
+          "remote": "/scratch/gautschi/holtw/codex-runs/gautschi-oral1comp-ref-20260324-203201/reference_fit_helpers.R"
+        }
+      ]
+    },
+    {
+      "at": "2026-03-25T00:32:06Z",
+      "event": "upload",
+      "files": [
+        {
+          "local": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/scripts/reference_pk_oral1comp_fit.R",
+          "remote": "/scratch/gautschi/holtw/codex-runs/gautschi-oral1comp-ref-20260324-203201/reference_pk_oral1comp_fit.R"
+        }
+      ]
+    },
+    {
+      "at": "2026-03-25T00:32:08Z",
+      "event": "render_job",
+      "local_script": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-oral1comp-ref-20260324-203201/job.slurm",
+      "remote_script": "/scratch/gautschi/holtw/codex-runs/gautschi-oral1comp-ref-20260324-203201/job.slurm",
+      "script_name": "job.slurm"
+    },
+    {
+      "applied_fixes": [],
+      "at": "2026-03-25T00:32:10Z",
+      "event": "submit_job",
+      "job_id": "8532797",
+      "stderr": "************************************************************\n\n***** Use of Purdue BoilerKey or SSH keys is Required ******\n\n************************************************************",
+      "stdout": "Submitted batch job 8532797"
+    },
+    {
+      "at": "2026-03-25T00:32:22Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:00",
+        "nodes": "1",
+        "raw": "PENDING|0:00|1|(Priority)",
+        "reason": "(Priority)",
+        "source": "squeue",
+        "state": "PENDING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:33:08Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:24",
+        "nodes": "1",
+        "raw": "COMPLETING|0:24|1|a166",
+        "reason": "a166",
+        "source": "squeue",
+        "state": "COMPLETING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:33:19Z",
+      "event": "logs",
+      "stderr_path": "/scratch/gautschi/holtw/codex-runs/gautschi-oral1comp-ref-20260324-203201/slurm-8532797.err",
+      "stdout_path": "/scratch/gautschi/holtw/codex-runs/gautschi-oral1comp-ref-20260324-203201/slurm-8532797.out",
+      "tail": 200
+    }
+  ],
+  "job_id": "8532797",
+  "local_run_dir": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-oral1comp-ref-20260324-203201",
+  "profile_id": "gautschi-cpu",
+  "remote_run_dir": "/scratch/gautschi/holtw/codex-runs/gautschi-oral1comp-ref-20260324-203201",
+  "run_id": "gautschi-oral1comp-ref-20260324-203201",
+  "script_name": "job.slurm",
+  "selected_by": "explicit",
+  "status": {
+    "elapsed": "0:24",
+    "nodes": "1",
+    "raw": "COMPLETING|0:24|1|a166",
+    "reason": "a166",
+    "source": "squeue",
+    "state": "COMPLETING"
+  },
+  "updated_at": "2026-03-25T00:33:19Z"
+}

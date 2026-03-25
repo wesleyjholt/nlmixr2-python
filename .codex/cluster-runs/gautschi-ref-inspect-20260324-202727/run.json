@@ -1,0 +1,144 @@
+{
+  "commands": [
+    "Rscript -e \"suppressPackageStartupMessages({library(nlmixr2); library(nlmixr2data)}); cat(\\\"packages ok\\\\n\\\"); cat(\\\"has theo_sd=\\\", exists(\\\"theo_sd\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); cat(\\\"has warfarin=\\\", exists(\\\"warfarin\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); cat(\\\"has pk.oral1comp=\\\", exists(\\\"pk.oral1comp\\\"), \\\"\\\\n\\\", sep=\\\"\\\"); cat(\\\"objects=\\\", paste(head(ls(\\\"package:nlmixr2data\\\"), 50), collapse=\\\",\\\"), \\\"\\\\n\\\", sep=\\\"\\\")\""
+  ],
+  "created_at": "2026-03-25T00:27:30Z",
+  "cwd": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python",
+  "header": {
+    "account": "lilly-agentic-cpu",
+    "cpus_per_task": 4,
+    "error": "slurm-%j.err",
+    "mem": "8G",
+    "modules": [],
+    "nodes": 1,
+    "ntasks": 1,
+    "output": "slurm-%j.out",
+    "partition": "cpu",
+    "qos": "standby",
+    "time": "01:00:00"
+  },
+  "history": [
+    {
+      "at": "2026-03-25T00:27:31Z",
+      "event": "render_job",
+      "local_script": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-ref-inspect-20260324-202727/job.slurm",
+      "remote_script": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-inspect-20260324-202727/job.slurm",
+      "script_name": "job.slurm"
+    },
+    {
+      "applied_fixes": [],
+      "at": "2026-03-25T00:27:33Z",
+      "event": "submit_job",
+      "job_id": "8532763",
+      "stderr": "************************************************************\n\n***** Use of Purdue BoilerKey or SSH keys is Required ******\n\n************************************************************",
+      "stdout": "Submitted batch job 8532763"
+    },
+    {
+      "at": "2026-03-25T00:27:34Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:00",
+        "nodes": "1",
+        "raw": "PENDING|0:00|1|(None)",
+        "reason": "(None)",
+        "source": "squeue",
+        "state": "PENDING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:27:46Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:00",
+        "nodes": "1",
+        "raw": "PENDING|0:00|1|(None)",
+        "reason": "(None)",
+        "source": "squeue",
+        "state": "PENDING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:27:59Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:00",
+        "nodes": "1",
+        "raw": "PENDING|0:00|1|(None)",
+        "reason": "(None)",
+        "source": "squeue",
+        "state": "PENDING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:28:11Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:02",
+        "nodes": "1",
+        "raw": "RUNNING|0:02|1|a166",
+        "reason": "a166",
+        "source": "squeue",
+        "state": "RUNNING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:28:24Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:10",
+        "nodes": "1",
+        "raw": "COMPLETING|0:10|1|a166",
+        "reason": "a166",
+        "source": "squeue",
+        "state": "COMPLETING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:28:36Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:10",
+        "nodes": "1",
+        "raw": "COMPLETING|0:10|1|a166",
+        "reason": "a166",
+        "source": "squeue",
+        "state": "COMPLETING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:28:50Z",
+      "event": "status",
+      "status": {
+        "elapsed": "00:00:10",
+        "exit_code": "0:0",
+        "nodes": "a166",
+        "raw": "8532763|COMPLETED|00:00:10|0:0|a166",
+        "source": "sacct",
+        "state": "COMPLETED"
+      }
+    },
+    {
+      "at": "2026-03-25T00:28:52Z",
+      "event": "logs",
+      "stderr_path": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-inspect-20260324-202727/slurm-8532763.err",
+      "stdout_path": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-inspect-20260324-202727/slurm-8532763.out",
+      "tail": 200
+    }
+  ],
+  "job_id": "8532763",
+  "local_run_dir": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-ref-inspect-20260324-202727",
+  "profile_id": "gautschi-cpu",
+  "remote_run_dir": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-inspect-20260324-202727",
+  "run_id": "gautschi-ref-inspect-20260324-202727",
+  "script_name": "job.slurm",
+  "selected_by": "explicit",
+  "status": {
+    "elapsed": "00:00:10",
+    "exit_code": "0:0",
+    "nodes": "a166",
+    "raw": "8532763|COMPLETED|00:00:10|0:0|a166",
+    "source": "sacct",
+    "state": "COMPLETED"
+  },
+  "updated_at": "2026-03-25T00:28:52Z"
+}

@@ -1,0 +1,107 @@
+{
+  "commands": [
+    "Rscript reference_warfarin_foce_fit.R"
+  ],
+  "created_at": "2026-03-25T00:31:11Z",
+  "cwd": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python",
+  "header": {
+    "account": "lilly-agentic-cpu",
+    "cpus_per_task": 4,
+    "error": "slurm-%j.err",
+    "mem": "8G",
+    "modules": [],
+    "nodes": 1,
+    "ntasks": 1,
+    "output": "slurm-%j.out",
+    "partition": "cpu",
+    "qos": "standby",
+    "time": "01:00:00"
+  },
+  "history": [
+    {
+      "at": "2026-03-25T00:31:19Z",
+      "event": "upload",
+      "files": [
+        {
+          "local": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/scripts/reference_fit_helpers.R",
+          "remote": "/scratch/gautschi/holtw/codex-runs/gautschi-warfarin-foce-ref-20260324-203108/reference_fit_helpers.R"
+        }
+      ]
+    },
+    {
+      "at": "2026-03-25T00:31:26Z",
+      "event": "render_job",
+      "local_script": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-warfarin-foce-ref-20260324-203108/job.slurm",
+      "remote_script": "/scratch/gautschi/holtw/codex-runs/gautschi-warfarin-foce-ref-20260324-203108/job.slurm",
+      "script_name": "job.slurm"
+    },
+    {
+      "applied_fixes": [],
+      "at": "2026-03-25T00:31:34Z",
+      "event": "submit_job",
+      "job_id": "8532793",
+      "stderr": "************************************************************\n\n***** Use of Purdue BoilerKey or SSH keys is Required ******\n\n************************************************************",
+      "stdout": "Submitted batch job 8532793"
+    },
+    {
+      "at": "2026-03-25T00:32:20Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:11",
+        "nodes": "1",
+        "raw": "RUNNING|0:11|1|a166",
+        "reason": "a166",
+        "source": "squeue",
+        "state": "RUNNING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:32:30Z",
+      "event": "logs",
+      "stderr_path": "/scratch/gautschi/holtw/codex-runs/gautschi-warfarin-foce-ref-20260324-203108/slurm-8532793.err",
+      "stdout_path": "/scratch/gautschi/holtw/codex-runs/gautschi-warfarin-foce-ref-20260324-203108/slurm-8532793.out",
+      "tail": 200
+    },
+    {
+      "at": "2026-03-25T00:33:06Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:42",
+        "nodes": "1",
+        "raw": "COMPLETING|0:42|1|a166",
+        "reason": "a166",
+        "source": "squeue",
+        "state": "COMPLETING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:33:19Z",
+      "event": "logs",
+      "stderr_path": "/scratch/gautschi/holtw/codex-runs/gautschi-warfarin-foce-ref-20260324-203108/slurm-8532793.err",
+      "stdout_path": "/scratch/gautschi/holtw/codex-runs/gautschi-warfarin-foce-ref-20260324-203108/slurm-8532793.out",
+      "tail": 200
+    },
+    {
+      "at": "2026-03-25T00:33:49Z",
+      "event": "download",
+      "local_path": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/tests/fixtures/reference-warfarin-foce-fit.json",
+      "remote_path": "/scratch/gautschi/holtw/codex-runs/gautschi-warfarin-foce-ref-20260324-203108/reference-warfarin-foce-fit.json"
+    }
+  ],
+  "job_id": "8532793",
+  "local_run_dir": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-warfarin-foce-ref-20260324-203108",
+  "profile_id": "gautschi-cpu",
+  "remote_run_dir": "/scratch/gautschi/holtw/codex-runs/gautschi-warfarin-foce-ref-20260324-203108",
+  "run_id": "gautschi-warfarin-foce-ref-20260324-203108",
+  "script_name": "job.slurm",
+  "selected_by": "explicit",
+  "status": {
+    "elapsed": "0:42",
+    "nodes": "1",
+    "raw": "COMPLETING|0:42|1|a166",
+    "reason": "a166",
+    "source": "squeue",
+    "state": "COMPLETING"
+  },
+  "updated_at": "2026-03-25T00:33:49Z"
+}

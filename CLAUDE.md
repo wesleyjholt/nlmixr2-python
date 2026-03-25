@@ -39,6 +39,14 @@ Suggested hubs (create as needed):
 - **Coverage per function:** **Several** tests each (typical: happy path, edge/boundary, error or invalid input, and a regression tied to `docs/parity/` when relevant). No function ships with a single test.
 - **Cadence:** Run the **full test suite often** while working (after each logical chunk, before handoff). Record failing commands + output in the session log if not fixed.
 
+## Parallelism & continuous progress
+
+- **Always keep ≥ 5 subagents running** when working through the TODO checklist. As agents complete, immediately spawn replacements from the next unchecked items.
+- **Periodic test sweeps:** After each batch of agents completes, update `__init__.py` exports and run the full test suite (`pytest tests/ --tb=short`). Fix any failures before launching the next batch.
+- **Documentation gardening:** After every 2–3 batches, spawn a docs-review agent to update `docs/STATE.md`, `docs/parity/coverage-matrix.md`, and other docs to reflect newly implemented features.
+- **Cross off TODO.md immediately:** Every time an agent completes, mark the corresponding item as done (`[x]`) in `TODO.md` RIGHT AWAY — do not batch this up. This is a hard requirement, not optional.
+- **Do not stop** until all items on the checklist are complete or explicitly deprioritized by the user.
+
 ## Defaults
 
 License compliance; parity/golden checks stay aligned with `docs/parity/`; tight scope, match repo style.

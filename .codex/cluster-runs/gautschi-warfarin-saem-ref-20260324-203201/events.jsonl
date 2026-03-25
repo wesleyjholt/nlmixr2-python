@@ -1,0 +1,3 @@
+{"at": "2026-03-25T00:32:03Z", "details": {"profile_id": "gautschi-cpu", "remote_run_dir": "/scratch/gautschi/holtw/codex-runs/gautschi-warfarin-saem-ref-20260324-203201", "selected_by": "explicit"}, "event": "run_created"}
+{"at": "2026-03-25T00:32:08Z", "details": {"remote_script": "/scratch/gautschi/holtw/codex-runs/gautschi-warfarin-saem-ref-20260324-203201/job.slurm", "script_name": "job.slurm"}, "event": "job_rendered"}
+{"at": "2026-03-25T00:32:10Z", "details": {"applied_fixes": [], "job_id": "8532796", "script_name": "job.slurm"}, "event": "job_submitted"}

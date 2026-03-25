@@ -1,0 +1,108 @@
+{
+  "commands": [
+    "Rscript -e \"suppressPackageStartupMessages(library(nlmixr2)); cat(as.character(utils::packageVersion(\\\"nlmixr2\\\")), \"\\\\n\"); cat(\"reference smoke ok\\\\n\")\""
+  ],
+  "created_at": "2026-03-24T19:43:32Z",
+  "cwd": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python",
+  "header": {
+    "account": "lilly-agentic-cpu",
+    "cpus_per_task": 4,
+    "error": "slurm-%j.err",
+    "mem": "8G",
+    "modules": [],
+    "nodes": 1,
+    "ntasks": 1,
+    "output": "slurm-%j.out",
+    "partition": "cpu",
+    "qos": "standby",
+    "time": "01:00:00"
+  },
+  "history": [
+    {
+      "at": "2026-03-24T19:43:34Z",
+      "event": "render_job",
+      "local_script": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-smoke-20260324-154329/job.slurm",
+      "remote_script": "/scratch/gautschi/holtw/codex-runs/gautschi-smoke-20260324-154329/job.slurm",
+      "script_name": "job.slurm"
+    },
+    {
+      "applied_fixes": [],
+      "at": "2026-03-24T19:43:36Z",
+      "event": "submit_job",
+      "job_id": "8531476",
+      "stderr": "************************************************************\n\n***** Use of Purdue BoilerKey or SSH keys is Required ******\n\n************************************************************",
+      "stdout": "Submitted batch job 8531476"
+    },
+    {
+      "at": "2026-03-24T19:43:37Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:00",
+        "nodes": "1",
+        "raw": "PENDING|0:00|1|(None)",
+        "reason": "(None)",
+        "source": "squeue",
+        "state": "PENDING"
+      }
+    },
+    {
+      "at": "2026-03-24T19:43:49Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:07",
+        "nodes": "1",
+        "raw": "COMPLETING|0:07|1|a234",
+        "reason": "a234",
+        "source": "squeue",
+        "state": "COMPLETING"
+      }
+    },
+    {
+      "at": "2026-03-24T19:44:02Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:07",
+        "nodes": "1",
+        "raw": "COMPLETING|0:07|1|a234",
+        "reason": "a234",
+        "source": "squeue",
+        "state": "COMPLETING"
+      }
+    },
+    {
+      "at": "2026-03-24T19:44:15Z",
+      "event": "status",
+      "status": {
+        "elapsed": "00:00:07",
+        "exit_code": "127:0",
+        "nodes": "a234",
+        "raw": "8531476|FAILED|00:00:07|127:0|a234",
+        "source": "sacct",
+        "state": "FAILED"
+      }
+    },
+    {
+      "at": "2026-03-24T19:44:17Z",
+      "event": "logs",
+      "stderr_path": "/scratch/gautschi/holtw/codex-runs/gautschi-smoke-20260324-154329/slurm-8531476.err",
+      "stdout_path": "/scratch/gautschi/holtw/codex-runs/gautschi-smoke-20260324-154329/slurm-8531476.out",
+      "tail": 200
+    }
+  ],
+  "job_id": "8531476",
+  "local_run_dir": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-smoke-20260324-154329",
+  "profile_id": "gautschi-cpu",
+  "remote_run_dir": "/scratch/gautschi/holtw/codex-runs/gautschi-smoke-20260324-154329",
+  "run_id": "gautschi-smoke-20260324-154329",
+  "script_name": "job.slurm",
+  "selected_by": "explicit",
+  "status": {
+    "elapsed": "00:00:07",
+    "exit_code": "127:0",
+    "nodes": "a234",
+    "raw": "8531476|FAILED|00:00:07|127:0|a234",
+    "source": "sacct",
+    "state": "FAILED"
+  },
+  "updated_at": "2026-03-24T19:44:17Z"
+}

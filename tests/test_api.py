@@ -102,7 +102,7 @@ def test_nlmixr2_accepts_record_data_and_writes_json(tmp_path):
 
 def test_nlmixr2_rejects_unsupported_estimators():
     with pytest.raises(NotImplementedError, match="not implemented"):
-        nlmixr2(_toy_model, data={"ID": [1], "dv": [1.0]}, est="focei")
+        nlmixr2(_toy_model, data={"ID": [1], "dv": [1.0]}, est="nonexistent_est")
 
 
 def test_nlmixr2_loads_reference_fit_artifact(tmp_path):
@@ -165,3 +165,29 @@ def test_nlmixr2_loads_real_reference_fit_fixture():
     assert fit.parameter_count == 4
     assert fit.objective == pytest.approx(117.003350569348)
     assert fit.table["reference_parameters"]["tka"]["estimate"] == pytest.approx(0.4750782090457)
+
+
+@pytest.mark.parametrize(
+    ("fixture_name", "expected_estimator", "expected_dataset"),
+    [
+        ("reference-theophylline-fit.json", "focei", "theo_sd"),
+        ("reference-warfarin-foce-fit.json", "focei", "warfarin"),
+        ("reference-warfarin-saem-fit.json", "saem", "warfarin"),
+        ("reference-pk-oral1comp-fit.json", "focei", "Oral_1CPT"),
+    ],
+)
+def test_nlmixr2_loads_cluster_generated_reference_fixtures(
+    fixture_name: str,
+    expected_estimator: str,
+    expected_dataset: str,
+):
+    path = Path(__file__).with_name("fixtures") / fixture_name
+
+    fit = nlmixr2(_toy_model, est="reference", reference_fit_path=path)
+
+    assert fit.estimator == expected_estimator
+    assert fit.n_observations > 0
+    assert fit.parameter_count > 0
+    assert fit.objective > 0.0
+    assert fit.control["reference_fit_path"] == str(path)
+    assert fit.control["reference_dataset"] == expected_dataset

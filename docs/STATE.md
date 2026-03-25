@@ -1,11 +1,14 @@
 # State
 
-- Phase: bootstrap / first API slice
-- Branch: `master` (new local git repo)
-- Package status: Python package has stress-tested mock and reference-artifact `nlmixr2()` paths, stricter data validation, stable save round-trips, and helper-function parity improvements
-- Parity status: top-level package surface is bootstrapped; `est="reference"` now ingests a real Gautschi FOCEi artifact from `theo_sd`
-- Gap analysis: coverage matrix added for upstream-vs-Python feature parity; current status is package-surface bootstrap, not estimator parity
-- Cluster status: Gautschi CPU/GPU profiles pass `doctor`; profile-managed env `/scratch/gautschi/$USER/codex-envs/nlmixr2-ref` has `Rscript` and `nlmixr2 5.0.0`; smoke and FOCEi artifact jobs completed on `standby`
-- Blockers: no native Python FOCEi/SAEM implementation yet; global `cluster-slurm` default profile still points to Bell, so Gautschi jobs must stay explicit for now
-- Latest full test run: `python3 -m pytest` -> 35 passed on 2026-03-24
-- Next action: use the coverage matrix to drive richer Gautschi reference artifacts beyond one model/fit, then replace the mock estimator path with native implementations
+- Phase: parity hardening / validation
+- Branch: `main`
+- Package status: the implementation checklist in `TODO.md` is fully checked off, including the Gautschi-backed reference artifact task for `warfarin` FOCE, `warfarin` SAEM, and `Oral_1CPT`
+- Reference artifacts available locally:
+  - `tests/fixtures/reference-theophylline-fit.json`
+  - `tests/fixtures/reference-warfarin-foce-fit.json`
+  - `tests/fixtures/reference-warfarin-saem-fit.json`
+  - `tests/fixtures/reference-pk-oral1comp-fit.json`
+- Verification: `python3 -m pytest` passes locally (`913 passed` on 2026-03-24)
+- Cluster status: Gautschi CPU/GPU profiles pass `doctor`; profile-managed env `/scratch/gautschi/$USER/codex-envs/nlmixr2-ref` has `Rscript` and `nlmixr2 5.0.0`; all reference jobs in this repo still require explicit `--profile gautschi-cpu` because the global `cluster-slurm` default profile points to Bell
+- Current risk: the `warfarin` FOCE artifact is reproducible but lands in a poor local optimum, so it is suitable for loader/regression coverage now but should be tuned before using it as a strict numeric parity target
+- Next action: promote the new Gautschi artifacts into deeper native-vs-reference comparison tests and improve the `warfarin` FOCE reference fit quality if that artifact becomes part of tighter numerical assertions

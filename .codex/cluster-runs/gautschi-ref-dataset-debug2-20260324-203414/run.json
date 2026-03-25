@@ -1,0 +1,89 @@
+{
+  "commands": [
+    "Rscript reference_dataset_debug.R"
+  ],
+  "created_at": "2026-03-25T00:34:15Z",
+  "cwd": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python",
+  "header": {
+    "account": "lilly-agentic-cpu",
+    "cpus_per_task": 4,
+    "error": "slurm-%j.err",
+    "mem": "8G",
+    "modules": [],
+    "nodes": 1,
+    "ntasks": 1,
+    "output": "slurm-%j.out",
+    "partition": "cpu",
+    "qos": "standby",
+    "time": "01:00:00"
+  },
+  "history": [
+    {
+      "at": "2026-03-25T00:34:17Z",
+      "event": "upload",
+      "files": [
+        {
+          "local": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/scripts/reference_dataset_debug.R",
+          "remote": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-dataset-debug2-20260324-203414/reference_dataset_debug.R"
+        }
+      ]
+    },
+    {
+      "at": "2026-03-25T00:34:19Z",
+      "event": "render_job",
+      "local_script": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-ref-dataset-debug2-20260324-203414/job.slurm",
+      "remote_script": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-dataset-debug2-20260324-203414/job.slurm",
+      "script_name": "job.slurm"
+    },
+    {
+      "applied_fixes": [],
+      "at": "2026-03-25T00:34:21Z",
+      "event": "submit_job",
+      "job_id": "8532805",
+      "stderr": "************************************************************\n\n***** Use of Purdue BoilerKey or SSH keys is Required ******\n\n************************************************************",
+      "stdout": "Submitted batch job 8532805"
+    },
+    {
+      "at": "2026-03-25T00:34:44Z",
+      "event": "logs",
+      "stderr_path": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-dataset-debug2-20260324-203414/slurm-8532805.err",
+      "stdout_path": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-dataset-debug2-20260324-203414/slurm-8532805.out",
+      "tail": 200
+    },
+    {
+      "at": "2026-03-25T00:34:51Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:13",
+        "nodes": "1",
+        "raw": "COMPLETING|0:13|1|a167",
+        "reason": "a167",
+        "source": "squeue",
+        "state": "COMPLETING"
+      }
+    },
+    {
+      "at": "2026-03-25T00:35:26Z",
+      "event": "logs",
+      "stderr_path": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-dataset-debug2-20260324-203414/slurm-8532805.err",
+      "stdout_path": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-dataset-debug2-20260324-203414/slurm-8532805.out",
+      "tail": 300
+    }
+  ],
+  "job_id": "8532805",
+  "local_run_dir": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-ref-dataset-debug2-20260324-203414",
+  "profile_id": "gautschi-cpu",
+  "remote_run_dir": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-dataset-debug2-20260324-203414",
+  "run_id": "gautschi-ref-dataset-debug2-20260324-203414",
+  "script_name": "job.slurm",
+  "selected_by": "explicit",
+  "status": {
+    "elapsed": "0:13",
+    "nodes": "1",
+    "raw": "COMPLETING|0:13|1|a167",
+    "reason": "a167",
+    "source": "squeue",
+    "state": "COMPLETING"
+  },
+  "updated_at": "2026-03-25T00:35:26Z"
+}

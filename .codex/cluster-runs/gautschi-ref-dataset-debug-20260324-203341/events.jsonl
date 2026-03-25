@@ -1,0 +1,4 @@
+{"at": "2026-03-25T00:33:44Z", "details": {"profile_id": "gautschi-cpu", "remote_run_dir": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-dataset-debug-20260324-203341", "selected_by": "explicit"}, "event": "run_created"}
+{"at": "2026-03-25T00:33:45Z", "details": {"remote_script": "/scratch/gautschi/holtw/codex-runs/gautschi-ref-dataset-debug-20260324-203341/job.slurm", "script_name": "job.slurm"}, "event": "job_rendered"}
+{"at": "2026-03-25T00:33:47Z", "details": {"applied_fixes": [], "job_id": "8532802", "script_name": "job.slurm"}, "event": "job_submitted"}
+{"at": "2026-03-25T00:33:47Z", "details": {"attempt": 1, "job_id": "8532802", "profile_id": "gautschi-cpu", "selected_by": "explicit"}, "event": "workload_submitted"}

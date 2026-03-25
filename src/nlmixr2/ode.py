@@ -54,7 +54,43 @@ def solve_ode(
     if dosing_events is None:
         dosing_events = []
 
-    n_cpt = y0.shape[0]
+    t_eval = jnp.asarray(t_eval)
+    state = jnp.asarray(y0)
+
+    # Expand ADDL/II: any event with addl > 0 is replaced by explicit copies
+    dosing_events = _expand_addl_dosing(dosing_events)
+
+    # Pre-process dosing events: apply bioavailability and lag_time
+    processed_events = []
+    for ev in dosing_events:
+        ev = dict(ev)  # shallow copy
+        F = ev.pop("bioavailability", 1.0)
+        tlag = ev.pop("lag_time", 0.0)
+        ev["amount"] = ev["amount"] * F
+        ev["time"] = ev["time"] + tlag
+        processed_events.append(ev)
+    dosing_events = processed_events
+
+    n_cpt = state.shape[0]
+
+    # Resolve rate/duration: if rate > 0 and no duration, compute duration
+    resolved_events = []
+    for ev in dosing_events:
+        ev = dict(ev)  # shallow copy
+        rate = ev.pop("rate", 0.0)
+        dur = ev.get("duration", 0.0)
+        if dur > 0.0:
+            # Explicit duration takes precedence; ignore rate
+            pass
+        elif rate > 0.0 and ev.get("amount", 0.0) > 0.0:
+            # Compute duration from rate
+            ev["duration"] = ev["amount"] / rate
+        elif rate == -1 or rate == -2:
+            # Model-specified rate/duration: not yet supported,
+            # fall through as bolus (no duration set)
+            pass
+        resolved_events.append(ev)
+    dosing_events = resolved_events
 
     # Separate bolus and infusion events
     bolus_events = []
@@ -70,7 +106,7 @@ def solve_ode(
 
     # Build infusion rate function: sum of active zero-order infusions
     def _infusion_rate(t: float) -> jnp.ndarray:
-        rate = jnp.zeros(n_cpt)
+        rate = jnp.zeros(n_cpt, dtype=state.dtype)
         for ev in infusion_events:
             t_start = ev["time"]
             dur = ev["duration"]
@@ -85,8 +121,8 @@ def solve_ode(
 
     # Augmented RHS that includes infusion input
     def _augmented_rhs(t, y, params):
-        dydt = rhs(t, y, params)
-        return dydt + _infusion_rate(t)
+        dydt = jnp.asarray(rhs(t, y, params), dtype=y.dtype)
+        return dydt + jnp.asarray(_infusion_rate(t), dtype=y.dtype)
 
     # Collect unique bolus times within t_span
     bolus_times = sorted({ev["time"] for ev in bolus_events})
@@ -99,7 +135,6 @@ def solve_ode(
     breakpoints = sorted({t0, tf} | {bt for bt in bolus_times if t0 <= bt <= tf})
 
     # Solve piecewise, collecting results for t_eval points in each segment
-    state = jnp.array(y0, dtype=jnp.float64)
     results = []  # list of (t_points, y_values) pairs
 
     for i in range(len(breakpoints) - 1):
@@ -130,7 +165,7 @@ def solve_ode(
                     seg_end,
                     state,
                     params,
-                    jnp.array([seg_end]),
+                    jnp.array([seg_end], dtype=t_eval.dtype),
                 )
                 state = sol[0]
             continue
@@ -148,14 +183,14 @@ def solve_ode(
                 seg_end,
                 state,
                 params,
-                jnp.array([seg_end]),
+                jnp.array([seg_end], dtype=t_eval.dtype),
             )
             state = end_sol[0]
         else:
             state = sol[-1]
 
     if len(results) == 0:
-        return jnp.zeros((len(t_eval), n_cpt))
+        return jnp.zeros((len(t_eval), n_cpt), dtype=state.dtype)
 
     return jnp.concatenate(results, axis=0)
 
@@ -163,6 +198,30 @@ def solve_ode(
 # ---------------------------------------------------------------------------
 # Internal helpers
 # ---------------------------------------------------------------------------
+
+def _expand_addl_dosing(events: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Expand ADDL/II fields in dosing-event dicts into explicit dose records."""
+    expanded: list[dict[str, Any]] = []
+    for ev in events:
+        addl = ev.get("addl", 0)
+        ii = ev.get("ii", 0.0)
+        if addl > 0:
+            if ii <= 0:
+                raise ValueError(
+                    f"ii must be positive when addl > 0 (got ii={ii}, addl={addl})"
+                )
+            base = {k: v for k, v in ev.items() if k not in ("addl", "ii")}
+            expanded.append(base)
+            for k in range(1, addl + 1):
+                copy = dict(base)
+                copy["time"] = ev["time"] + k * ii
+                expanded.append(copy)
+        else:
+            # Strip addl/ii keys if present so downstream code doesn't see them
+            clean = {k: v for k, v in ev.items() if k not in ("addl", "ii")}
+            expanded.append(clean)
+    return expanded
+
 
 def _solve_segment(
     rhs_fn: Callable,
@@ -216,3 +275,61 @@ def _solve_segment(
         ys = jnp.concatenate([start_rows, ys], axis=0)
 
     return ys
+
+
+# ---------------------------------------------------------------------------
+# Transit compartment helper
+# ---------------------------------------------------------------------------
+
+def transit_compartments(
+    n_transit: int,
+    ktr: float,
+    dose_compartment: int = 0,
+) -> Callable:
+    """Return a function that adds *n_transit* transit-chain terms to *dydt*.
+
+    The transit chain occupies state indices ``[dose_compartment, dose_compartment + n_transit)``.
+    The first transit compartment (index ``dose_compartment``) receives the
+    bolus dose.  The last transit compartment feeds into the compartment at
+    index ``dose_compartment + n_transit`` (e.g., a depot or absorption
+    compartment) which the caller is responsible for defining.
+
+    Usage::
+
+        transit_fn = transit_compartments(3, ktr=2.0, dose_compartment=0)
+
+        def rhs(t, y, params):
+            dydt = jnp.zeros_like(y)
+            dydt = transit_fn(t, y, dydt)
+            # ... add depot/central dynamics for y[3], y[4], etc.
+            return dydt
+
+    Parameters
+    ----------
+    n_transit : int
+        Number of transit compartments in the chain.
+    ktr : float
+        Transit rate constant (same for all compartments).
+    dose_compartment : int
+        Index of the first transit compartment in the state vector.
+
+    Returns
+    -------
+    callable
+        ``fn(t, y, dydt) -> dydt`` that mutates and returns *dydt*.
+    """
+    def _transit_rhs(t, y, dydt):
+        for i in range(n_transit):
+            idx = dose_compartment + i
+            if i == 0:
+                inflow = 0.0  # dose is applied via bolus event
+            else:
+                inflow = ktr * y[dose_compartment + i - 1]
+            outflow = ktr * y[idx]
+            dydt = dydt.at[idx].add(inflow - outflow)
+        # Feed last transit into the next compartment (depot)
+        depot_idx = dose_compartment + n_transit
+        dydt = dydt.at[depot_idx].add(ktr * y[dose_compartment + n_transit - 1])
+        return dydt
+
+    return _transit_rhs

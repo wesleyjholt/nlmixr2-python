@@ -1,0 +1,132 @@
+{
+  "commands": [
+    "which python3; python3 -V; which Rscript; Rscript --version"
+  ],
+  "created_at": "2026-03-24T19:51:32Z",
+  "cwd": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python",
+  "header": {
+    "account": "lilly-agentic-cpu",
+    "cpus_per_task": 4,
+    "error": "slurm-%j.err",
+    "mem": "8G",
+    "modules": [],
+    "nodes": 1,
+    "ntasks": 1,
+    "output": "slurm-%j.out",
+    "partition": "cpu",
+    "qos": "standby",
+    "time": "01:00:00"
+  },
+  "history": [
+    {
+      "at": "2026-03-24T19:51:33Z",
+      "event": "render_job",
+      "local_script": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-rscript-smoke-20260324-155131/job.slurm",
+      "remote_script": "/scratch/gautschi/holtw/codex-runs/gautschi-rscript-smoke-20260324-155131/job.slurm",
+      "script_name": "job.slurm"
+    },
+    {
+      "applied_fixes": [],
+      "at": "2026-03-24T19:51:35Z",
+      "event": "submit_job",
+      "job_id": "8531505",
+      "stderr": "************************************************************\n\n***** Use of Purdue BoilerKey or SSH keys is Required ******\n\n************************************************************",
+      "stdout": "Submitted batch job 8531505"
+    },
+    {
+      "at": "2026-03-24T19:51:36Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:00",
+        "nodes": "1",
+        "raw": "PENDING|0:00|1|(None)",
+        "reason": "(None)",
+        "source": "squeue",
+        "state": "PENDING"
+      }
+    },
+    {
+      "at": "2026-03-24T19:51:47Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:06",
+        "nodes": "1",
+        "raw": "RUNNING|0:06|1|a235",
+        "reason": "a235",
+        "source": "squeue",
+        "state": "RUNNING"
+      }
+    },
+    {
+      "at": "2026-03-24T19:51:58Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:09",
+        "nodes": "1",
+        "raw": "COMPLETING|0:09|1|a235",
+        "reason": "a235",
+        "source": "squeue",
+        "state": "COMPLETING"
+      }
+    },
+    {
+      "at": "2026-03-24T19:52:09Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:09",
+        "nodes": "1",
+        "raw": "COMPLETING|0:09|1|a235",
+        "reason": "a235",
+        "source": "squeue",
+        "state": "COMPLETING"
+      }
+    },
+    {
+      "at": "2026-03-24T19:52:19Z",
+      "event": "status",
+      "status": {
+        "elapsed": "0:09",
+        "nodes": "1",
+        "raw": "COMPLETING|0:09|1|a235",
+        "reason": "a235",
+        "source": "squeue",
+        "state": "COMPLETING"
+      }
+    },
+    {
+      "at": "2026-03-24T19:52:31Z",
+      "event": "status",
+      "status": {
+        "elapsed": "00:00:09",
+        "exit_code": "0:0",
+        "nodes": "a235",
+        "raw": "8531505|COMPLETED|00:00:09|0:0|a235",
+        "source": "sacct",
+        "state": "COMPLETED"
+      }
+    },
+    {
+      "at": "2026-03-24T19:52:33Z",
+      "event": "logs",
+      "stderr_path": "/scratch/gautschi/holtw/codex-runs/gautschi-rscript-smoke-20260324-155131/slurm-8531505.err",
+      "stdout_path": "/scratch/gautschi/holtw/codex-runs/gautschi-rscript-smoke-20260324-155131/slurm-8531505.out",
+      "tail": 200
+    }
+  ],
+  "job_id": "8531505",
+  "local_run_dir": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-rscript-smoke-20260324-155131",
+  "profile_id": "gautschi-cpu",
+  "remote_run_dir": "/scratch/gautschi/holtw/codex-runs/gautschi-rscript-smoke-20260324-155131",
+  "run_id": "gautschi-rscript-smoke-20260324-155131",
+  "script_name": "job.slurm",
+  "selected_by": "explicit",
+  "status": {
+    "elapsed": "00:00:09",
+    "exit_code": "0:0",
+    "nodes": "a235",
+    "raw": "8531505|COMPLETED|00:00:09|0:0|a235",
+    "source": "sacct",
+    "state": "COMPLETED"
+  },
+  "updated_at": "2026-03-24T19:52:33Z"
+}

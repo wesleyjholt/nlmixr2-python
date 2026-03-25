@@ -1,0 +1,41 @@
+{
+  "artifact_version": 1,
+  "source": {
+    "tool": "nlmixr2",
+    "version": "5.0.0",
+    "estimator": "focei",
+    "dataset": "Oral_1CPT",
+    "model": "oral_pk"
+  },
+  "run": {
+    "n_observations": 2400,
+    "n_ids": 120,
+    "columns": ["ID", "TIME", "DV", "AMT", "EVID", "CMT"],
+    "objective": 19365.223791254299,
+    "aic": null,
+    "bic": null,
+    "log_likelihood": null
+  },
+  "parameters": {
+    "tka": {
+      "estimate": -0.03011245996754,
+      "se": 0.03377840118229,
+      "rse": 112.174167167703
+    },
+    "tcl": {
+      "estimate": 1.389879022604,
+      "se": 0.02347992341935,
+      "rse": 1.689350154761
+    },
+    "tv": {
+      "estimate": 4.192543854674,
+      "se": 0.02617816590685,
+      "rse": 0.624398141421
+    },
+    "prop.sd": {
+      "estimate": 0.1982500249958,
+      "se": null,
+      "rse": null
+    }
+  }
+}

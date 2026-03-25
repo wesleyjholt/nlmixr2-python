@@ -1,0 +1,46 @@
+{
+  "artifact_version": 1,
+  "source": {
+    "tool": "nlmixr2",
+    "version": "5.0.0",
+    "estimator": "saem",
+    "dataset": "warfarin",
+    "model": "warfarin_pk"
+  },
+  "run": {
+    "n_observations": 515,
+    "n_ids": 32,
+    "columns": ["id", "time", "amt", "dv", "evid", "wt", "age", "sex"],
+    "objective": 3710.690914026579,
+    "aic": null,
+    "bic": null,
+    "log_likelihood": null
+  },
+  "parameters": {
+    "tka": {
+      "estimate": -0.7407009496854,
+      "se": 1.100832930243,
+      "rse": 148.620429163816
+    },
+    "tcl": {
+      "estimate": -6.760124329718,
+      "se": 9.463749164026,
+      "rse": 139.993714648444
+    },
+    "tv": {
+      "estimate": 1.861145556657,
+      "se": 0.1412453395238,
+      "rse": 7.589161364545
+    },
+    "prop.sd": {
+      "estimate": 0.0003743899018401,
+      "se": null,
+      "rse": null
+    },
+    "add.sd": {
+      "estimate": 28.07142762149,
+      "se": null,
+      "rse": null
+    }
+  }
+}

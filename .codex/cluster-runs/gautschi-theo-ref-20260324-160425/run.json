@@ -1,0 +1,48 @@
+{
+  "commands": [],
+  "created_at": "2026-03-24T20:04:28Z",
+  "cwd": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python",
+  "history": [
+    {
+      "at": "2026-03-24T20:05:23Z",
+      "event": "upload",
+      "files": [
+        {
+          "local": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/scripts/reference_theophylline_fit.R",
+          "remote": "/scratch/gautschi/holtw/codex-runs/gautschi-theo-ref-20260324-160425/reference_theophylline_fit.R"
+        }
+      ]
+    },
+    {
+      "applied_fixes": [],
+      "at": "2026-03-24T20:05:41Z",
+      "event": "submit_job",
+      "job_id": "8531590",
+      "stderr": "************************************************************\n\n***** Use of Purdue BoilerKey or SSH keys is Required ******\n\n************************************************************",
+      "stdout": "Submitted batch job 8531590"
+    },
+    {
+      "at": "2026-03-24T20:05:52Z",
+      "event": "logs",
+      "stderr_path": "/scratch/gautschi/holtw/codex-runs/gautschi-theo-ref-20260324-160425/slurm-8531590.err",
+      "stdout_path": "/scratch/gautschi/holtw/codex-runs/gautschi-theo-ref-20260324-160425/slurm-8531590.out",
+      "tail": 200
+    },
+    {
+      "at": "2026-03-24T20:06:33Z",
+      "event": "logs",
+      "stderr_path": "/scratch/gautschi/holtw/codex-runs/gautschi-theo-ref-20260324-160425/slurm-8531590.err",
+      "stdout_path": "/scratch/gautschi/holtw/codex-runs/gautschi-theo-ref-20260324-160425/slurm-8531590.out",
+      "tail": 200
+    }
+  ],
+  "job_id": "8531590",
+  "local_run_dir": "/Users/holtw/Documents/mydocs/software/misc/2026-03-24__nlmixr2-python/.codex/cluster-runs/gautschi-theo-ref-20260324-160425",
+  "profile_id": "gautschi-cpu",
+  "remote_run_dir": "/scratch/gautschi/holtw/codex-runs/gautschi-theo-ref-20260324-160425",
+  "run_id": "gautschi-theo-ref-20260324-160425",
+  "script_name": null,
+  "selected_by": "explicit",
+  "status": null,
+  "updated_at": "2026-03-24T20:06:33Z"
+}
